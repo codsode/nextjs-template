@@ -11,6 +11,7 @@ export interface AuthState {
   isLoading: boolean;
   error: string | null;
   tokens: Tokens | null;
+  __hydrated: boolean;
 }
 
 export interface AuthActions {

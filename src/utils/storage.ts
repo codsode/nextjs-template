@@ -10,6 +10,8 @@ export const storage = {
    */
   set: <T>(key: StorageKey, value: T): void => {
     try {
+      if (typeof window === 'undefined') return;
+      
       if (value === undefined || value === null) {
         localStorage.removeItem(key);
         return;
@@ -27,6 +29,8 @@ export const storage = {
    */
   get: <T>(key: StorageKey): T | null => {
     try {
+      if (typeof window === 'undefined') return null;
+      
       const value = localStorage.getItem(key);
       if (value === null) return null;
 
@@ -46,6 +50,7 @@ export const storage = {
    */
   remove: (key: StorageKey): void => {
     try {
+      if (typeof window === 'undefined') return;
       localStorage.removeItem(key);
     } catch (error) {
       console.error(`Storage remove error for key "${key}":`, error);
@@ -56,6 +61,7 @@ export const storage = {
    * Check if a key exists
    */
   contains: (key: StorageKey): boolean => {
+    if (typeof window === 'undefined') return false;
     return localStorage.getItem(key) !== null;
   },
 
@@ -63,6 +69,7 @@ export const storage = {
    * Get all storage keys
    */
   getAllKeys: (): string[] => {
+    if (typeof window === 'undefined') return [];
     return Object.keys(localStorage);
   },
 

@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Template with Auth
 
-## Getting Started
+A minimal Next.js boilerplate with authentication, protected routes, and Zustand store.
 
-First, run the development server:
+## Features
 
+- ✅ Authentication (Login/Signup)
+- ✅ Protected Routes
+- ✅ Zustand State Management
+- ✅ Tailwind CSS
+- ✅ TypeScript
+- ✅ Form Validation (Zod)
+- ✅ Toast Notifications
+- ✅ API Client (Axios)
+
+## Quick Start
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run Development Server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Test Login
+- Route: `/login` - Try the demo login
+- Route: `/signup` - Create account
+- Route: `/home` - Protected home page (requires login)
 
-## Learn More
+## Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── (auth)/            # Auth routes
+│   ├── (app)/             # Protected routes
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Root redirect
+├── components/
+│   ├── layout/           # Navbar
+│   ├── screen/           # Pages (Login, Signup, Home)
+│   └── ui/               # UI Components (Button, Input)
+├── api/                  # API config
+├── models/               # Data models
+├── store/                # Zustand store
+├── constants/            # Constants
+├── hooks/                # React hooks
+└── utils/                # Utilities
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authentication Flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Routes
+- `/` - Redirects to `/login` or `/home`
+- `/login` - Login page
+- `/signup` - Signup page
+- `/home` - Protected home page
 
-## Deploy on Vercel
+### Protected Route Wrapper
+All routes in `(app)` group are protected. If not authenticated, user is redirected to `/login`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## State Management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Zustand Store
+```typescript
+import { useAppStore } from '@/store';
+
+const { user, isAuthenticated, login, logout } = useAppStore();
+```
+
+### Available Methods
+- `login(user, tokens)` - Login
+- `logout()` - Logout
+- `setLoading(bool)` - Loading state
+- `clearError()` - Clear errors
+
+## Connecting Your API
+
+Edit `src/app/(auth)/login/page.tsx`:
+
+```typescript
+const handleLogin = async (email: string, password: string) => {
+  // Call your API
+  const response = await apiClient.post('/auth/login', { email, password });
+  
+  // Store user & tokens
+  await login(response.data.user, response.data.tokens);
+};
+```
+
+## Customizing User Model
+
+Edit `src/models/user-modal.ts`:
+
+```typescript
+export const UserSchema = z.object({
+  _id: z.string(),
+  name: z.string(),
+  email: z.string(),
+  // Add your custom fields
+  createdAt: z.date(),
+  updatedAt: z.date(),
+});
+```
+
+## Commands
+
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm start        # Production server
+npm run lint     # ESLint
+```
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Zustand
+- Zod
+- Axios
+- React Toastify
+
+---
+
+Ready to build? Start by editing `/src/app/(auth)/login/page.tsx` to connect your API!

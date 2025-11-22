@@ -21,6 +21,7 @@ export const createAuthSlice: StateCreator<
     isLoading: false,
     error: null,
     tokens: null,
+    __hydrated: false,
     login: async (user: User, tokens: Tokens) => {
       try {
         set({ isLoading: true, error: null });
@@ -82,5 +83,13 @@ export const createAuthSlice: StateCreator<
       isAuthenticated: state.isAuthenticated,
       tokens: state.tokens,
     }),
+
+    onRehydrateStorage: () => {
+      return (state) => {
+        if (state) {
+          state.__hydrated = true;
+        }
+      };
+    },
   }
 );

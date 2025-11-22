@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { APIProvider } from "@/api/config/api-provider";
 import { ToastContainer } from "react-toastify";
+import { APIProvider } from "@/api";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
