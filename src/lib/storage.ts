@@ -17,8 +17,8 @@ export const storage: Storage = {
       const stringValue =
         typeof value === 'string' ? value : JSON.stringify(value);
       localStorage.setItem(key, stringValue);
-    } catch (error) {
-      console.error(`Storage set error for key "${key}":`, error);
+    } catch {
+      // Silent fail — storage may be unavailable in SSR or incognito
     }
   },
 
@@ -34,8 +34,7 @@ export const storage: Storage = {
       } catch {
         return value as T;
       }
-    } catch (error) {
-      console.error(`Storage get error for key "${key}":`, error);
+    } catch {
       return null;
     }
   },
@@ -44,8 +43,8 @@ export const storage: Storage = {
     try {
       if (typeof window === 'undefined') return;
       localStorage.removeItem(key);
-    } catch (error) {
-      console.error(`Storage remove error for key "${key}":`, error);
+    } catch {
+      // Silent fail
     }
   },
 };

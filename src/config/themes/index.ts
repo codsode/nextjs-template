@@ -1,2 +1,2 @@
-export { themes, blueTheme, greenTheme, purpleTheme } from './colors';
+export { themes } from './colors';
 export type { ThemeColors, ThemePalette, ThemeName, ThemeMode } from './colors';

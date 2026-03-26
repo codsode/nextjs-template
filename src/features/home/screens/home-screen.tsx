@@ -38,7 +38,9 @@ export function HomeScreen(): ReactNode {
       </div>
 
       <div>
-        <h2 className="mb-4 text-lg font-semibold text-foreground">Features</h2>
+        <h2 className="mb-4 text-lg font-semibold text-foreground">
+          {t('featuresTitle')}
+        </h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {featureKeys.map((key) => (
             <FeatureCard

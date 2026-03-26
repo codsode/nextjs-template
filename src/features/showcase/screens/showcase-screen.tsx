@@ -30,7 +30,6 @@ export function ShowcaseScreen(): ReactNode {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {t('title')}
@@ -38,27 +37,26 @@ export function ShowcaseScreen(): ReactNode {
         <p className="mt-1 text-sm text-muted-foreground">{t('subtitle')}</p>
       </div>
 
-      {/* Theme */}
       <ThemeSection />
 
       {/* Buttons */}
       <Section title={t('buttons')}>
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="destructive">Destructive</Button>
-            <Button variant="ghost">Ghost</Button>
+            <Button variant="primary">{t('btnPrimary')}</Button>
+            <Button variant="secondary">{t('btnSecondary')}</Button>
+            <Button variant="outline">{t('btnOutline')}</Button>
+            <Button variant="destructive">{t('btnDestructive')}</Button>
+            <Button variant="ghost">{t('btnGhost')}</Button>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <Button size="sm">Small</Button>
-            <Button size="md">Medium</Button>
-            <Button size="lg">Large</Button>
+            <Button size="sm">{t('btnSmall')}</Button>
+            <Button size="md">{t('btnMedium')}</Button>
+            <Button size="lg">{t('btnLarge')}</Button>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <Button isLoading>Loading</Button>
-            <Button disabled>Disabled</Button>
+            <Button isLoading>{t('btnLoading')}</Button>
+            <Button disabled>{t('btnDisabled')}</Button>
           </div>
         </div>
       </Section>
@@ -66,17 +64,27 @@ export function ShowcaseScreen(): ReactNode {
       {/* Inputs */}
       <Section title={t('inputs')}>
         <div className="grid gap-4 sm:grid-cols-2">
-          <InputField label="Default" placeholder="Type something..." />
-          <InputField label="With value" defaultValue="Hello world" />
           <InputField
-            label="With error"
-            defaultValue="bad"
-            error="This field has an error"
+            label={t('inputDefault')}
+            placeholder={t('inputPlaceholder')}
           />
-          <InputField label="Disabled" placeholder="Disabled" disabled />
           <InputField
-            label="With icon"
-            placeholder="Search..."
+            label={t('inputWithValue')}
+            defaultValue={t('inputHello')}
+          />
+          <InputField
+            label={t('inputWithError')}
+            defaultValue="bad"
+            error={t('inputErrorMsg')}
+          />
+          <InputField
+            label={t('inputDisabled')}
+            placeholder={t('inputDisabled')}
+            disabled
+          />
+          <InputField
+            label={t('inputWithIcon')}
+            placeholder={t('inputSearch')}
             icon={
               <svg
                 className="h-4 w-4"
@@ -93,18 +101,25 @@ export function ShowcaseScreen(): ReactNode {
               </svg>
             }
           />
-          <InputField label="Password" type="password" placeholder="••••••••" />
+          <InputField
+            label={t('inputPassword')}
+            type="password"
+            placeholder="••••••••"
+          />
         </div>
       </Section>
 
       {/* Textarea */}
       <Section title={t('textarea')}>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Textarea label="Message" placeholder="Write your message..." />
           <Textarea
-            label="With error"
-            defaultValue="Too short"
-            error="Must be at least 20 characters"
+            label={t('textareaMessage')}
+            placeholder={t('textareaPlaceholder')}
+          />
+          <Textarea
+            label={t('textareaWithError')}
+            defaultValue={t('textareaErrorVal')}
+            error={t('textareaErrorMsg')}
           />
         </div>
       </Section>
@@ -113,20 +128,20 @@ export function ShowcaseScreen(): ReactNode {
       <Section title={t('selects')}>
         <div className="grid gap-4 sm:grid-cols-2">
           <Select
-            label="Country"
-            placeholder="Select a country"
+            label={t('selectCountry')}
+            placeholder={t('selectPlaceholder')}
             options={[
-              { value: 'us', label: 'United States' },
-              { value: 'in', label: 'India' },
-              { value: 'uk', label: 'United Kingdom' },
-              { value: 'de', label: 'Germany' },
+              { value: 'us', label: t('selectUS') },
+              { value: 'in', label: t('selectIN') },
+              { value: 'uk', label: t('selectUK') },
+              { value: 'de', label: t('selectDE') },
             ]}
           />
           <Select
-            label="With error"
-            placeholder="Select..."
-            options={[{ value: 'a', label: 'Option A' }]}
-            error="Selection is required"
+            label={t('selectWithError')}
+            placeholder={t('selectErrorPlaceholder')}
+            options={[{ value: 'a', label: t('selectOptionA') }]}
+            error={t('selectErrorMsg')}
           />
         </div>
       </Section>
@@ -135,21 +150,21 @@ export function ShowcaseScreen(): ReactNode {
       <Section title={t('checkboxRadio')}>
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="space-y-3">
-            <Checkbox label="Accept terms and conditions" />
-            <Checkbox label="Checked by default" defaultChecked />
-            <Checkbox label="Disabled" disabled />
-            <Checkbox label="With error" error="You must accept this" />
+            <Checkbox label={t('cbAccept')} />
+            <Checkbox label={t('cbChecked')} defaultChecked />
+            <Checkbox label={t('cbDisabled')} disabled />
+            <Checkbox label={t('cbWithError')} error={t('cbErrorMsg')} />
           </div>
           <RadioGroup
             name="demo-radio"
-            label="Choose an option"
+            label={t('radioLabel')}
             value={radio}
             onChange={setRadio}
             options={[
-              { value: 'option1', label: 'Option One' },
-              { value: 'option2', label: 'Option Two' },
-              { value: 'option3', label: 'Option Three' },
-              { value: 'option4', label: 'Disabled', disabled: true },
+              { value: 'option1', label: t('radioOpt1') },
+              { value: 'option2', label: t('radioOpt2') },
+              { value: 'option3', label: t('radioOpt3') },
+              { value: 'option4', label: t('radioDisabled'), disabled: true },
             ]}
           />
         </div>
@@ -160,23 +175,23 @@ export function ShowcaseScreen(): ReactNode {
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="space-y-4">
             <Switch
-              label="Notifications"
+              label={t('switchNotifications')}
               checked={switchOn}
               onChange={() => setSwitchOn(!switchOn)}
             />
-            <Switch label="Dark mode" />
-            <Switch label="Disabled" disabled />
+            <Switch label={t('switchDarkMode')} />
+            <Switch label={t('switchDisabled')} disabled />
           </div>
           <div className="space-y-4">
             <Slider
-              label="Volume"
+              label={t('sliderVolume')}
               showValue
               min={0}
               max={100}
               value={sliderVal}
               onChange={(e) => setSliderVal(Number(e.target.value))}
             />
-            <Slider label="Disabled" value={30} disabled />
+            <Slider label={t('sliderDisabled')} value={30} disabled />
           </div>
         </div>
       </Section>
@@ -184,12 +199,12 @@ export function ShowcaseScreen(): ReactNode {
       {/* Badges */}
       <Section title={t('badges')}>
         <div className="flex flex-wrap gap-2">
-          <Badge>Default</Badge>
-          <Badge variant="secondary">Secondary</Badge>
-          <Badge variant="destructive">Destructive</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="warning">Warning</Badge>
-          <Badge variant="outline">Outline</Badge>
+          <Badge>{t('badgeDefault')}</Badge>
+          <Badge variant="secondary">{t('badgeSecondary')}</Badge>
+          <Badge variant="destructive">{t('badgeDestructive')}</Badge>
+          <Badge variant="success">{t('badgeSuccess')}</Badge>
+          <Badge variant="warning">{t('badgeWarning')}</Badge>
+          <Badge variant="outline">{t('badgeOutline')}</Badge>
         </div>
       </Section>
 
@@ -211,21 +226,25 @@ export function ShowcaseScreen(): ReactNode {
       <Section title={t('cards')}>
         <div className="grid gap-4 sm:grid-cols-3">
           <Card>
-            <h3 className="font-semibold text-foreground">Default Card</h3>
+            <h3 className="font-semibold text-foreground">
+              {t('cardDefault')}
+            </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              A simple card with default styling.
+              {t('cardDefaultDesc')}
             </p>
           </Card>
           <Card className="border-primary/30">
-            <h3 className="font-semibold text-foreground">Highlighted</h3>
+            <h3 className="font-semibold text-foreground">
+              {t('cardHighlighted')}
+            </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Card with primary border accent.
+              {t('cardHighlightedDesc')}
             </p>
           </Card>
           <Card className="bg-primary-light">
-            <h3 className="font-semibold text-foreground">Tinted</h3>
+            <h3 className="font-semibold text-foreground">{t('cardTinted')}</h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Card with primary light background.
+              {t('cardTintedDesc')}
             </p>
           </Card>
         </div>
@@ -247,7 +266,6 @@ export function ShowcaseScreen(): ReactNode {
             {t('openDelete')}
           </Button>
         </div>
-
         <Modal
           open={openModal === 'info'}
           onClose={() => setOpenModal(null)}
@@ -280,12 +298,24 @@ export function ShowcaseScreen(): ReactNode {
         />
       </Section>
 
-      {/* Loading */}
-      <Section title="Loading Spinner">
+      {/* Loading Spinner */}
+      <Section title={t('loadingSpinner')}>
         <div className="flex flex-wrap items-center gap-6">
-          <LoadingSpinner size="sm" fullScreen={false} message="Small" />
-          <LoadingSpinner size="md" fullScreen={false} message="Medium" />
-          <LoadingSpinner size="lg" fullScreen={false} message="Large" />
+          <LoadingSpinner
+            size="sm"
+            fullScreen={false}
+            message={t('spinnerSmall')}
+          />
+          <LoadingSpinner
+            size="md"
+            fullScreen={false}
+            message={t('spinnerMedium')}
+          />
+          <LoadingSpinner
+            size="lg"
+            fullScreen={false}
+            message={t('spinnerLarge')}
+          />
         </div>
       </Section>
     </div>

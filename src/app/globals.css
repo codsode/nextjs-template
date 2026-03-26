@@ -80,6 +80,11 @@
   border-color: rgb(var(--border));
 }
 
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
 body {
   background: rgb(var(--background));
   color: rgb(var(--foreground));
@@ -90,6 +95,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 *:focus-visible {
