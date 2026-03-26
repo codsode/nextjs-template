@@ -1,3 +1,3 @@
-import { type AuthSlice } from './slices';
+import type { AuthSlice } from './slices';
 
 export type RootStore = AuthSlice;

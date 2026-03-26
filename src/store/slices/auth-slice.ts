@@ -1,40 +1,48 @@
 import { type StateCreator } from 'zustand';
 import { persist, type StorageValue } from 'zustand/middleware';
 
-import { type User } from '@/models';
-import { storage } from '@/utils';
+import type { User, Tokens } from '@/features/auth/types';
+import { storage } from '@/lib/storage';
 
-import {
-  type AuthPersistedState,
-  type AuthSlice,
-  type Tokens,
-} from './auth.types';
+import type { AuthPersistedState, AuthSlice } from './auth.types';
+
+function setAuthCookie(token: string | null) {
+  if (typeof document === 'undefined') return;
+  if (token) {
+    document.cookie = `auth-token=${token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax`;
+  } else {
+    document.cookie = 'auth-token=; path=/; max-age=0';
+  }
+}
 
 export const createAuthSlice: StateCreator<
   AuthSlice,
   [],
   [['zustand/persist', AuthPersistedState]]
 > = persist(
-  set => ({
+  (set) => ({
     user: null,
     isAuthenticated: false,
     isLoading: false,
     error: null,
     tokens: null,
     __hydrated: false,
+
     login: async (user: User, tokens: Tokens) => {
       try {
         set({ isLoading: true, error: null });
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         set({
-          user: user,
+          user,
           isAuthenticated: true,
           isLoading: false,
           error: null,
-          tokens: tokens,
+          tokens,
         });
+
+        setAuthCookie(tokens.accessToken);
       } catch (error) {
         set({
           isLoading: false,
@@ -51,6 +59,7 @@ export const createAuthSlice: StateCreator<
         error: null,
         tokens: null,
       });
+      setAuthCookie(null);
     },
 
     clearError: () => {
@@ -60,8 +69,10 @@ export const createAuthSlice: StateCreator<
     setLoading: (loading: boolean) => {
       set({ isLoading: loading });
     },
+
     setTokens: (tokens: Tokens) => {
-      set({ tokens: tokens });
+      set({ tokens });
+      setAuthCookie(tokens.accessToken);
     },
   }),
   {
@@ -77,19 +88,20 @@ export const createAuthSlice: StateCreator<
         storage.remove(name);
       },
     },
-
     partialize: (state): AuthPersistedState => ({
       user: state.user,
       isAuthenticated: state.isAuthenticated,
       tokens: state.tokens,
     }),
-
     onRehydrateStorage: () => {
       return (state) => {
         if (state) {
           state.__hydrated = true;
+          if (state.tokens?.accessToken) {
+            setAuthCookie(state.tokens.accessToken);
+          }
         }
       };
     },
-  }
+  },
 );

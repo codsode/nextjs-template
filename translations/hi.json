@@ -1,0 +1,124 @@
+{
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "redirecting": "रीडायरेक्ट हो रहा है...",
+    "tryAgain": "पुनः प्रयास करें",
+    "goHome": "होम पर जाएं"
+  },
+  "nav": {
+    "appName": "ऐप",
+    "logout": "लॉगआउट",
+    "toggleMenu": "नेविगेशन मेनू टॉगल करें"
+  },
+  "footer": {
+    "copyright": "© {year} ऐप। सर्वाधिकार सुरक्षित।"
+  },
+  "auth": {
+    "login": {
+      "title": "लॉगिन",
+      "emailLabel": "ईमेल",
+      "emailPlaceholder": "अपना ईमेल दर्ज करें",
+      "passwordLabel": "पासवर्ड",
+      "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+      "submit": "लॉगिन",
+      "noAccount": "खाता नहीं है?",
+      "signupLink": "साइन अप करें",
+      "error": "लॉगिन विफल",
+      "success": "लॉगिन सफल!"
+    },
+    "signup": {
+      "title": "साइन अप",
+      "nameLabel": "नाम",
+      "namePlaceholder": "अपना नाम दर्ज करें",
+      "emailLabel": "ईमेल",
+      "emailPlaceholder": "अपना ईमेल दर्ज करें",
+      "passwordLabel": "पासवर्ड",
+      "passwordPlaceholder": "पासवर्ड बनाएं",
+      "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+      "confirmPasswordPlaceholder": "अपना पासवर्ड दोबारा दर्ज करें",
+      "submit": "साइन अप",
+      "hasAccount": "पहले से खाता है?",
+      "loginLink": "लॉगिन",
+      "error": "साइन अप विफल"
+    },
+    "validation": {
+      "emailRequired": "ईमेल आवश्यक है",
+      "emailInvalid": "कृपया एक वैध ईमेल दर्ज करें",
+      "passwordRequired": "पासवर्ड आवश्यक है",
+      "passwordMin": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए",
+      "nameMin": "नाम कम से कम 2 अक्षरों का होना चाहिए",
+      "confirmRequired": "कृपया अपने पासवर्ड की पुष्टि करें",
+      "passwordsMismatch": "पासवर्ड मेल नहीं खाते"
+    }
+  },
+  "home": {
+    "welcome": "स्वागत है, {name}!",
+    "loggedIn": "आप सफलतापूर्वक लॉग इन हैं! आप नेवबार में लॉगआउट बटन का उपयोग कर सकते हैं।",
+    "features": {
+      "auth": {
+        "title": "प्रमाणीकरण",
+        "description": "फॉर्म वैलिडेशन और सुरक्षित रूट्स के साथ सुरक्षित लॉगिन और साइन अप।"
+      },
+      "state": {
+        "title": "स्टेट मैनेजमेंट",
+        "description": "पर्सिस्टेंस, स्लाइस और हाइड्रेशन हैंडलिंग के साथ Zustand स्टोर।"
+      },
+      "responsive": {
+        "title": "रेस्पॉन्सिव डिज़ाइन",
+        "description": "मोबाइल-फर्स्ट लेआउट जो सभी स्क्रीन साइज़ पर काम करता है।"
+      },
+      "forms": {
+        "title": "फॉर्म वैलिडेशन",
+        "description": "टाइप-सेफ वैलिडेशन के लिए Zod स्कीमा के साथ React Hook Form।"
+      },
+      "testing": {
+        "title": "टेस्टिंग",
+        "description": "व्यापक टेस्टिंग के लिए React Testing Library के साथ Vitest।"
+      },
+      "quality": {
+        "title": "कोड क्वालिटी",
+        "description": "स्वच्छ कोड के लिए ESLint, Prettier, Husky प्री-कमिट हुक्स।"
+      }
+    }
+  },
+  "showcase": {
+    "title": "कंपोनेंट शोकेस",
+    "subtitle": "सभी UI कंपोनेंट्स और थीम विकल्प एक ही जगह।",
+    "viewShowcase": "कंपोनेंट्स देखें",
+    "theme": "थीम सेटिंग्स",
+    "themeDesc": "कलर पैलेट और लाइट/डार्क मोड बदलें।",
+    "colorPalette": "कलर पैलेट",
+    "mode": "दिखावट",
+    "light": "लाइट",
+    "dark": "डार्क",
+    "system": "सिस्टम",
+    "buttons": "बटन",
+    "inputs": "इनपुट",
+    "selects": "सेलेक्ट और ड्रॉपडाउन",
+    "checkboxRadio": "चेकबॉक्स और रेडियो",
+    "switchSlider": "स्विच और स्लाइडर",
+    "badges": "बैज",
+    "avatars": "अवतार",
+    "modals": "मोडल",
+    "cards": "कार्ड",
+    "textarea": "टेक्स्ट एरिया",
+    "openInfo": "जानकारी मोडल",
+    "openAlert": "चेतावनी मोडल",
+    "openDelete": "डिलीट मोडल",
+    "modalInfoTitle": "जानकारी",
+    "modalInfoDesc": "यह एक सूचनात्मक डायलॉग है जो महत्वपूर्ण विवरण दिखाता है।",
+    "modalAlertTitle": "चेतावनी",
+    "modalAlertDesc": "इस कार्य के अनपेक्षित परिणाम हो सकते हैं। कृपया सावधानी से आगे बढ़ें।",
+    "modalDeleteTitle": "आइटम हटाएं",
+    "modalDeleteDesc": "यह कार्य पूर्ववत नहीं किया जा सकता। क्या आप इस आइटम को हटाना चाहते हैं?",
+    "confirm": "पुष्टि करें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं"
+  },
+  "error": {
+    "title": "कुछ गलत हो गया",
+    "notFoundCode": "404",
+    "notFoundTitle": "पेज नहीं मिला",
+    "notFoundDescription": "आप जो पेज ढूंढ रहे हैं वह मौजूद नहीं है या स्थानांतरित कर दिया गया है।"
+  }
+}

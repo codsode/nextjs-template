@@ -1,9 +1,4 @@
-import { User } from "@/models";
-
-export interface Tokens {
-  accessToken: string;
-  refreshToken: string;
-}
+import type { User, Tokens } from '@/features/auth/types';
 
 export interface AuthState {
   user: User | null;
@@ -24,4 +19,7 @@ export interface AuthActions {
 
 export interface AuthSlice extends AuthState, AuthActions {}
 
-export type AuthPersistedState = Pick<AuthSlice, "user" | "isAuthenticated" | "tokens">;
+export type AuthPersistedState = Pick<
+  AuthSlice,
+  'user' | 'isAuthenticated' | 'tokens'
+>;

@@ -1,0 +1,124 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "redirecting": "Redirecting...",
+    "tryAgain": "Try again",
+    "goHome": "Go home"
+  },
+  "nav": {
+    "appName": "App",
+    "logout": "Logout",
+    "toggleMenu": "Toggle navigation menu"
+  },
+  "footer": {
+    "copyright": "© {year} App. All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Login",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up",
+      "error": "Login failed",
+      "success": "Login successful!"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submit": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Login",
+      "error": "Signup failed"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "nameMin": "Name must be at least 2 characters",
+      "confirmRequired": "Please confirm your password",
+      "passwordsMismatch": "Passwords do not match"
+    }
+  },
+  "home": {
+    "welcome": "Welcome, {name}!",
+    "loggedIn": "You are successfully logged in! You can use the logout button in the navbar.",
+    "features": {
+      "auth": {
+        "title": "Authentication",
+        "description": "Secure login and signup with form validation and protected routes."
+      },
+      "state": {
+        "title": "State Management",
+        "description": "Zustand store with persistence, slices, and hydration handling."
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Mobile-first layout that works on all screen sizes."
+      },
+      "forms": {
+        "title": "Form Validation",
+        "description": "React Hook Form with Zod schemas for type-safe validation."
+      },
+      "testing": {
+        "title": "Testing",
+        "description": "Vitest with React Testing Library for comprehensive testing."
+      },
+      "quality": {
+        "title": "Code Quality",
+        "description": "ESLint, Prettier, Husky pre-commit hooks for clean code."
+      }
+    }
+  },
+  "showcase": {
+    "title": "Component Showcase",
+    "subtitle": "All UI components and theme options in one place.",
+    "viewShowcase": "View Components",
+    "theme": "Theme Settings",
+    "themeDesc": "Switch color palette and light/dark mode.",
+    "colorPalette": "Color Palette",
+    "mode": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "buttons": "Buttons",
+    "inputs": "Inputs",
+    "selects": "Select & Dropdown",
+    "checkboxRadio": "Checkbox & Radio",
+    "switchSlider": "Switch & Slider",
+    "badges": "Badges",
+    "avatars": "Avatars",
+    "modals": "Modals",
+    "cards": "Cards",
+    "textarea": "Textarea",
+    "openInfo": "Info Modal",
+    "openAlert": "Alert Modal",
+    "openDelete": "Delete Modal",
+    "modalInfoTitle": "Information",
+    "modalInfoDesc": "This is an informational dialog to show important details.",
+    "modalAlertTitle": "Warning",
+    "modalAlertDesc": "This action may have unintended consequences. Please proceed carefully.",
+    "modalDeleteTitle": "Delete Item",
+    "modalDeleteDesc": "This action cannot be undone. Are you sure you want to delete this item?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "notFoundCode": "404",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The page you are looking for does not exist or has been moved."
+  }
+}

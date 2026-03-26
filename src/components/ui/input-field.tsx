@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useId } from 'react';
+
+import { cn } from '@/lib/utils';
 
 interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -7,34 +9,60 @@ interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
-  ({ label, error, icon, className, ...props }, ref) => {
+  ({ label, error, icon, className, id: externalId, ...props }, ref) => {
+    const generatedId = useId();
+    const inputId = externalId ?? generatedId;
+    const errorId = `${inputId}-error`;
+
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor={inputId}
+            className="mb-1.5 block text-sm font-medium text-foreground"
+          >
             {label}
           </label>
         )}
         <div className="relative">
           {icon && (
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <div
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+              aria-hidden="true"
+            >
               {icon}
             </div>
           )}
           <input
             ref={ref}
-            className={`w-full px-4 ${
-              icon ? "pl-10" : ""
-            } py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition ${
-              error ? "border-red-500 focus:ring-red-500" : ""
-            } ${className}`}
+            id={inputId}
+            className={cn(
+              'w-full rounded-xl border border-input bg-card px-3.5 py-2.5 text-sm text-foreground placeholder-muted-foreground',
+              'transition-colors duration-150',
+              'hover:border-input-hover',
+              'focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent',
+              'disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:hover:border-input',
+              icon ? 'pl-10' : undefined,
+              error && 'border-destructive focus:ring-destructive',
+              className,
+            )}
+            aria-invalid={error ? 'true' : undefined}
+            aria-describedby={error ? errorId : undefined}
             {...props}
           />
         </div>
-        {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+        {error && (
+          <p
+            id={errorId}
+            className="mt-1.5 text-xs font-medium text-destructive"
+            role="alert"
+          >
+            {error}
+          </p>
+        )}
       </div>
     );
-  }
+  },
 );
 
-InputField.displayName = "InputField";
+InputField.displayName = 'InputField';
